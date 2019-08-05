@@ -169,7 +169,7 @@ NAN_METHOD(AudioContext::newCtor) {
 		
 		REQ_OBJ_ARG(0, opts);
 		
-		if (opts->Has(JS_STR("sampleRate"))) {
+		if (opts->Has(Nan::GetCurrentContext(), JS_STR("sampleRate")).ToChecked()) {
 			
 			if ( !opts->Get(JS_STR("sampleRate"))->IsNumber() ) {
 				return Nan::ThrowTypeError("Type of 'opts.sampleRate' must be 'number'.");
